@@ -50,6 +50,10 @@ export default {
         id: '0008',
         imgUrl: 'https://picbed.qunarzz.com/ae617a31e0bd5803d76918b817f6d942.png',
         desc: '自由行'
+      }, {
+        id: '0009',
+        imgUrl: 'https://picbed.qunarzz.com/c65b3bb7571a6bd62df669213e44b84d.png',
+        desc: '一日游'
       }]
     }
   },
