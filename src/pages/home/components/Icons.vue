@@ -24,10 +24,8 @@ export default {
   data () {
     return {
       swiperOption: {
-<<<<<<< HEAD
         autoplay: false
-      },
->>>>>>> index-ajax
+      }
     }
   },
   computed: {
@@ -36,8 +34,7 @@ export default {
       const pages = []
       this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
-    
-    if (!pages[page]) {
+        if (!pages[page]) {
           pages[page] = []
         }
         pages[page].push(item)
