@@ -59,7 +59,7 @@ export default {
   },
   computed: {
     pages () {
-    // 二维数组实现
+    // 二维数组实现分页
       const pages = []
       this.iconList.forEach((item, index) => {
         const page = Math.floor(index / 8)
