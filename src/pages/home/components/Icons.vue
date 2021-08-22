@@ -20,6 +20,9 @@ export default {
   name: 'HomeIcons',
   data () {
     return {
+      swiperOption: {
+        loop: false,
+      },
       iconList: [{
         id: '0001',
         imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/hotel.png',
