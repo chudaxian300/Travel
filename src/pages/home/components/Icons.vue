@@ -9,6 +9,8 @@
             <p class="icon-desc">{{item.desc}}</p>
         </div>
       </swiper-slide>
+      <div class="swiper-pagination"  slot="pagination"></div>
+
     </swiper>
     </div>
 </template>
@@ -50,12 +52,18 @@ export default {
         id: '0008',
         imgUrl: 'https://picbed.qunarzz.com/ae617a31e0bd5803d76918b817f6d942.png',
         desc: '自由行'
+      }, {
+        id: '0009',
+        imgUrl: 'https://picbed.qunarzz.com/c65b3bb7571a6bd62df669213e44b84d.png',
+        desc: '一日游'
+
       }]
     }
   },
   computed: {
     pages () {
     // 二维数组实现
+    // 二维数组实现分页
       const pages = []
       this.iconList.forEach((item, index) => {
         const page = Math.floor(index / 8)
@@ -80,6 +88,7 @@ export default {
     overflow:hidden
     height: 0
     padding-bottom: 50%
+    margin-top: .1rem
     .icon
       position: relative
       overflow: hidden
