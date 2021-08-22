@@ -20,6 +20,9 @@ export default {
   name: 'HomeIcons',
   data () {
     return {
+      swiperOption: {
+        loop: false
+      },
       iconList: [{
         id: '0001',
         imgUrl: 'https://s.qunarzz.com/homenode/images/touchheader/hotel.png',
@@ -56,14 +59,12 @@ export default {
         id: '0009',
         imgUrl: 'https://picbed.qunarzz.com/c65b3bb7571a6bd62df669213e44b84d.png',
         desc: '一日游'
-
       }]
     }
   },
   computed: {
     pages () {
-    // 二维数组实现
-    // 二维数组实现分页
+      // 二维数组实现分页
       const pages = []
       this.iconList.forEach((item, index) => {
         const page = Math.floor(index / 8)
