@@ -4,6 +4,7 @@
 // reset.css:重置页面样式表,使不同设备样式统一
 // border.css:解决移动端1像素边框问题
 // vue-awesome-swiper:vue轮播图插件
+// 13-16 styles来源见:travel\build\webpack.base.conf.js 39:7
 import Vue from 'vue'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import App from './App'
