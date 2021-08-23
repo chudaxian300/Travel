@@ -7,10 +7,12 @@
           <span class="iconfont">&#xe632;</span>
           输入城市/景点/游玩主题
         </div>
-        <div class="header-right">
-          {{this.city}}
-          <span class="iconfont arrow-icon">&#xe64a;</span>
-        </div>
+        <router-link to="/city">
+          <div class="header-right">
+            {{this.city}}
+            <span class="iconfont arrow-icon">&#xe64a;</span>
+          </div>
+        </router-link>
     </div>
 </template>
 
@@ -24,11 +26,12 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+// ~styles来源见:travel\build\webpack.base.conf.js 39:7
 @import '~styles/varibles.styl'
 .header
   display: flex
   color: #fff
-  line-height: .86rem
+  line-height: $headerHeight
   background: $bgColor
   .header-left
     width: .64rem
@@ -50,6 +53,7 @@ export default {
     width: 1.24rem
     float: right
     text-align: center
+    color: #fff
     .arrow-icon
       margin-left: -.04rem
       font-size: .24rem
