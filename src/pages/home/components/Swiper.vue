@@ -27,13 +27,6 @@ export default {
         // 自动播放3s
         autoplay: 3000
       }
-      // swiperList: [{
-      //   id: '0001',
-      //   imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vcimg/79faa5a73731e84a7731db49d5baa91e.jpeg'
-      // }, {
-      //   id: '0002',
-      //   imgUrl: 'https://imgs.qunarzz.com/vs_ceph_vcimg/79faa5a73731e84a7731db49d5baa91e.jpeg'
-      // }]
     }
   },
   computed: {
