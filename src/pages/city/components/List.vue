@@ -17,7 +17,7 @@
                     </div>
                 </div>
             </div>
-            <div class="area" v-for="(item, key) of cities" :key="key">
+            <div class="area" v-for="(item, key) of cities" :key="key" :ref="key">
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list">
                     <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">
@@ -38,10 +38,21 @@ export default {
   name: 'CityList',
   props: {
     hot: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        // 此处this.$refs为整个字母的数组,如:A:...,B:...,因此[this.letter]可定位
+        // this.$refs[this.letter][0]指向对应div.area
+        const element = this.$refs[this.letter][0]
+        this.scroll.scrollToElement(element)
+      }
+    }
   },
   updated () {
     this.scroll.refresh()
