@@ -9,6 +9,7 @@
         </div>
         <router-link to="/city">
           <div class="header-right">
+          <!-- 因为在main.js的Vue实例里已经将store传入,因此组件可随意调用 -->
             {{this.city}}
             <span class="iconfont arrow-icon">&#xe64a;</span>
           </div>
@@ -17,10 +18,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-    city: String
+  computed: {
+    // 从vuex中获取city属性,存储在名叫city的计算属性中
+    ...mapState(['city'])
   }
 }
 </script>
@@ -50,7 +53,8 @@ export default {
     border-radius: .1rem
     color: #ccc
   .header-right
-    width: 1.24rem
+    min-width: 1.04rem
+    padding: 0 .1rem
     float: right
     text-align: center
     color: #fff
