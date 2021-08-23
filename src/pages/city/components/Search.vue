@@ -6,7 +6,7 @@
     <!-- v-show判断元素是否显示 -->
     <div class="search-content" ref="searchData" v-show="keyword">
       <ul>
-        <li class="search-item border-bottom" v-for="item of list" :key="item.id">{{item.name}}</li>
+        <li class="search-item border-bottom" v-for="item of list" :key="item.id" @click="handleCityClick(item.name)">{{item.name}}</li>
         <li class="search-item border-bottom" v-show="hasNoData">没有找到匹配项</li>
       </ul>
     </div>
@@ -15,6 +15,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 export default {
   name: 'CitySearch',
   props: {
@@ -31,6 +32,21 @@ export default {
     hasNoData () {
       return !this.list.length
     }
+  },
+  methods: {
+    handleCityClick (city) {
+      // 调用store/index.js的vuex里的action方法changeCity
+      // this.$store.dispatch('changeCity', city)
+      // 以下为组件直接调用mutations跳过action情况
+      // this.$store.commit('changeCity', city)
+      // 进一步优化后
+      this.changeCity(city)
+      // 点击变更城市后跳回首页
+      this.$router.push('/')
+    },
+    // 从vuex中=mutations里获取叫changeCity的方法
+    // 映射在组件里一个叫changeCity的方法里
+    ...mapMutations(['changeCity'])
   },
   watch: {
     keyword () {

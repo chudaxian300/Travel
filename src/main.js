@@ -5,8 +5,10 @@
 // border.css:解决移动端1像素边框问题
 // vue-awesome-swiper:vue轮播图插件
 // 13-16 styles来源见:travel\build\webpack.base.conf.js 39:7
+// store: 导入vuex数据存储区域
 import Vue from 'vue'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import store from './store'
 import App from './App'
 import router from './router'
 import fastClick from 'fastclick'
@@ -23,6 +25,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

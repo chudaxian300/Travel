@@ -5,14 +5,14 @@
                 <div class="title border-topbottom">当前城市</div>
                 <div class="button-list">
                     <div class="button-wrapper">
-                        <div class="button">北京</div>
+                        <div class="button">{{this.currentCity}}</div>
                     </div>
                 </div>
             </div>
             <div class="area">
                 <div class="title border-topbottom">热门城市</div>
                 <div class="button-list">
-                    <div class="button-wrapper" v-for="item of hot" :key="item.id">
+                    <div class="button-wrapper" v-for="item of hot" :key="item.id" @click="handleCityClick(item.name)">
                         <div class="button">{{item.name}}</div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
             <div class="area" v-for="(item, key) of cities" :key="key" :ref="key">
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list">
-                    <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id">
+                    <div class="item border-bottom" v-for="innerItem of item" :key="innerItem.id" @click="handleCityClick(innerItem.name)">
                         {{innerItem.name}}
                     </div>
                 </div>
@@ -34,6 +34,7 @@
 // city.json里的cities是用存着数组对象存
 // hotCities是用对象数组存
 import Bscroll from 'better-scroll'
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'CityList',
   props: {
@@ -41,8 +42,32 @@ export default {
     cities: Object,
     letter: String
   },
+  computed: {
+    // 从vuex中获取city属性,存储在名叫currentCity的计算属性中
+    ...mapState({
+      currentCity: 'city'
+    })
+  },
+  methods: {
+    handleCityClick (city) {
+      // 调用store/index.js的vuex里的action方法changeCity
+      // this.$store.dispatch('changeCity', city)
+      // 以下为组件直接调用mutations跳过action情况
+      // this.$store.commit('changeCity', city)
+      // 进一步优化后
+      this.changeCity(city)
+      // 点击变更城市后跳回首页
+      this.$router.push('/')
+    },
+    // 从vuex中=mutations里获取叫changeCity的方法
+    // 映射在组件里一个叫changeCity的方法里
+    ...mapMutations(['changeCity'])
+  },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)
+  },
+  updated () {
+    this.scroll.refresh()
   },
   watch: {
     letter () {
@@ -53,9 +78,6 @@ export default {
         this.scroll.scrollToElement(element)
       }
     }
-  },
-  updated () {
-    this.scroll.refresh()
   }
 }
 </script>
