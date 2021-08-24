@@ -1,7 +1,10 @@
 <template>
   <div id="app">
     <!-- 显示的是当前路由地址所对应的内容 -->
-    <router-view />
+    <!-- keepalive可以使同页面资源重复访问不重复加载 -->
+    <keep-alive>
+      <router-view />
+    </keep-alive>
   </div>
 </template>
 

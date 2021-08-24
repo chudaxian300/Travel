@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import states from './state'
+import state from './state'
 import mutations from './mutations'
 
 Vue.use(Vuex)
 
 // 创建vuex区域
 export default new Vuex.Store({
-  states,
+  state,
   // actions: {
   //   changeCity (ctx, city) {
   //     // 为action调用mutations的changeCity
