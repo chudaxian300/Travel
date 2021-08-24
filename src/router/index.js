@@ -21,5 +21,10 @@ export default new Router({
       name: 'Detail',
       component: Detail
     }
-  ]
+  ],
+  // 使路由切换时,先进入显示的页面初始xy轴都为0
+  // 以此解决多页面滚动影响
+  scrollBehavior (to, from, savedPosition) {
+    return {x: 0, y: 0}
+  }
 })

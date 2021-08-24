@@ -39,12 +39,12 @@ export default {
       }
     }
   },
-  activated () {
+  mounted () {
     window.addEventListener('scroll', this.handleScroll)
   },
   // 当页面即将被隐藏或替换时执行
   // 解除scroll事件绑定,防止其他地方误调用此window事件
-  deactivated () {
+  beforeDestroy () {
     window.removeEventListener('scroll', this.handleScroll)
   }
 }

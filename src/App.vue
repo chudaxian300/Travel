@@ -2,7 +2,8 @@
   <div id="app">
     <!-- 显示的是当前路由地址所对应的内容 -->
     <!-- keepalive可以使同页面资源重复访问不重复加载 -->
-    <keep-alive>
+    <!-- exclude="Detail" 表明keep-alive不对Detail组件做缓存,mounted多次执行 -->
+    <keep-alive exclude="Detail">
       <router-view />
     </keep-alive>
   </div>
