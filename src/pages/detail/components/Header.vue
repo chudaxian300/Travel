@@ -46,7 +46,7 @@ export default {
   // 解除scroll事件绑定,防止其他地方误调用此window事件
   deactivated () {
     window.removeEventListener('scroll', this.handleScroll)
-  },
+  }
 }
 </script>
 
@@ -66,6 +66,8 @@ export default {
       color: #fff
       font-size: .4rem
   .header-fixed
+    // z-index属性设置元素的堆叠顺序。
+    z-index: 2
     position: fixed
     top: 0
     left:0
