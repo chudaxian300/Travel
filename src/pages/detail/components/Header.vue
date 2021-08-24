@@ -26,7 +26,8 @@ export default {
   },
   methods: {
     handleScroll () {
-      const top = document.documentElement.scrollTop
+      // 添加2个,解决手机兼容性问题
+      const top = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset
       if (top > 60) {
         // 表示在距顶部60-150时有渐隐渐现效果动画
         let opacity = top / 150

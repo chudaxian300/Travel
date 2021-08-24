@@ -7,19 +7,27 @@
         <div class="banner-number"><span class="iconfont banner-icon">&#xe692;</span>{{this.gallaryImgs.length}}</div>
       </div>
     </div>
-    <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+    <!-- <fade-animation>代表fade里的slot -->
+    <fade-animation>
+      <common-gallary :imgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClose"></common-gallary>
+    </fade-animation>
    </div>
 </template>
 
 <script>
 // 路径源于travel\build\webpack.base.conf.js第40行
 import CommonGallary from 'common/gallary/Gallary'
+import FadeAnimation from 'common/fade/Fade'
 export default {
   name: 'Detail',
   props: {
     sightName: String,
     bannerImg: String,
     gallaryImgs: Array
+  },
+  components: {
+    CommonGallary,
+    FadeAnimation
   },
   data () {
     return {
@@ -33,9 +41,6 @@ export default {
     handleGallaryClose () {
       this.showGallary = false
     }
-  },
-  components: {
-    CommonGallary
   }
 }
 </script>
