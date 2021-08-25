@@ -6,12 +6,14 @@
 // vue-awesome-swiper:vue轮播图插件
 // 13-16 styles来源见:travel\build\webpack.base.conf.js 39:7
 // store: 导入vuex数据存储区域
+// babel-polyfill: 解决部分手机无polyfill问题(白屏)
 import Vue from 'vue'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import store from './store'
 import App from './App'
 import router from './router'
 import fastClick from 'fastclick'
+import 'babel-polyfill'
 import 'styles/reset.css'
 import 'styles/border.css'
 import 'styles/iconfont.css'
